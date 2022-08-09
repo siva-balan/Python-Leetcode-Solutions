@@ -1,0 +1,11 @@
+# Write your MySQL query statement below
+select employees.employee_id
+from employees 
+left join salaries on employees.employee_id = salaries.employee_id
+where salaries.salary is null or employees.name is null
+union
+select salaries.employee_id
+from salaries 
+left join employees on employees.employee_id = salaries.employee_id
+where salaries.salary is null or employees.name is null
+order by employee_id asc;
