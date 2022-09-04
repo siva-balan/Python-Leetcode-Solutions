@@ -1,0 +1,9 @@
+# Write your MySQL query statement below
+select id,
+case
+when P_id is null then 'Root'
+when (select count(a.p_id) from tree a where a.p_id = t.id) = 0 then 'Leaf'
+else 'Inner'
+end as type
+from Tree t
+order by id asc;
