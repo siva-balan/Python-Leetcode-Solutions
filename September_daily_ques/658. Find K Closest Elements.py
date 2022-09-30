@@ -26,3 +26,16 @@ class Solution:
             l +=1
             r+=1
         return output
+    
+    #EFFICIENT SOLUTION
+    
+    l,r = 0, len(arr)-k
+        
+        while l <r:
+            mid = (l+r) //2
+            
+            if x - arr[mid] > arr[mid+k] -x:
+                l = mid +1
+            else:
+                r = mid
+        return arr[l:l+k]
